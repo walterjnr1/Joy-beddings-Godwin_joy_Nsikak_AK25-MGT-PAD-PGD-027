@@ -1,0 +1,994 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Jay's Bedd'inns N More</title>
+    <meta name="description"
+    content="Explore bedding and interior decoration services from Jay's Bedd'inns N More. Find beautiful bedsheets, home accessories and styling assistance.">
+    <link rel="icon" type="image/png" href="images/logo.jpeg">
+
+    <style>
+        :root {
+            --gold: #c49a35;
+            --dark-gold: #96701c;
+            --cream: #fffaf0;
+            --white: #ffffff;
+            --dark: #29251e;
+            --muted: #746e63;
+            --border: #eee4ce;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--dark-gold);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .brand img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--dark-gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 12px 23px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-gold:hover {
+            background: var(--dark-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gold);
+            color: var(--dark-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        /* HERO BANNER */
+        .page-hero {
+            min-height: 390px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(
+                    rgba(32, 25, 12, 0.65),
+                    rgba(32, 25, 12, 0.65)
+                ),
+                url("images/hero.jpeg") center/cover no-repeat;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(32px, 5vw, 50px);
+            margin-bottom: 15px;
+        }
+
+        .page-hero p {
+            max-width: 720px;
+            margin: 0 auto 25px;
+            font-size: 17px;
+        }
+
+        /* SECTION HEADINGS */
+        .section-heading {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 40px;
+        }
+
+        .eyebrow {
+            color: var(--dark-gold);
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(27px, 4vw, 36px);
+            line-height: 1.3;
+            margin: 10px 0 14px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* INTRODUCTION */
+        .intro {
+            padding: 70px 0 35px;
+            text-align: center;
+        }
+
+        .intro p {
+            max-width: 800px;
+            margin: auto;
+            color: var(--muted);
+        }
+
+        /* SERVICES */
+        .services-section {
+            padding: 35px 0 80px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(70, 50, 10, 0.1);
+        }
+
+        .service-image {
+            height: 230px;
+            overflow: hidden;
+            background: #eee5d3;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-number {
+            color: var(--dark-gold);
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .service-content h3 {
+            font-size: 20px;
+            margin: 8px 0 10px;
+        }
+
+        .service-content p {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .text-link {
+            color: var(--dark-gold);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .text-link:hover {
+            text-decoration: underline;
+        }
+
+        /* PROCESS */
+        .process-section {
+            background: #f4ead5;
+            padding: 75px 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .process-card {
+            text-align: center;
+            padding: 25px 18px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .process-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #fff1ca;
+            font-size: 27px;
+            margin: 0 auto 18px;
+        }
+
+        .process-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* BENEFITS */
+        .benefits-section {
+            padding: 75px 0;
+        }
+
+        .benefits-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .benefits-image {
+            height: 450px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .benefits-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .benefits-content h2 {
+            font-size: clamp(27px, 4vw, 36px);
+            line-height: 1.3;
+            margin: 10px 0 18px;
+        }
+
+        .benefits-content > p {
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 13px;
+            margin-bottom: 18px;
+        }
+
+        .check {
+            color: var(--dark-gold);
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .benefit-item h3 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .benefit-item p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--dark);
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: clamp(27px, 4vw, 36px);
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #e5ddcd;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1e1b16;
+            color: white;
+            padding: 45px 0 18px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 35px;
+            padding-bottom: 30px;
+        }
+
+        .footer-brand {
+            color: #e3bb5c;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .footer-grid h3 {
+            color: #e3bb5c;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-grid p {
+            color: #d1c9bb;
+            font-size: 14px;
+            margin-bottom: 9px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #e3bb5c;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #403a2f;
+            padding-top: 18px;
+            text-align: center;
+            color: #c9c0b2;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-layout {
+                gap: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                min-height: 75px;
+            }
+
+            .brand {
+                font-size: 14px;
+                gap: 8px;
+            }
+
+            .brand img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px 4%;
+                flex-direction: column;
+                align-items: flex-start;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .page-hero {
+                min-height: 330px;
+            }
+
+            .service-grid,
+            .process-grid,
+            .benefits-layout,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-image {
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container navbar">
+
+            <a href="index.html" class="brand">
+                <img src="images/logo.jpeg"
+                     alt="Jay's Bedd'inns N More logo">
+                <span>Jay's Bedd'inns N More</span>
+            </a>
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="eyebrow" style="color: #f4d98d;">
+                Thoughtful Details, Beautiful Spaces
+            </span>
+
+            <h1>Our Services</h1>
+
+            <p>
+                At Jay's Bedd'inns N More, we help you discover beautiful
+                bedding and interior decoration options to make your home
+                more comfortable, welcoming and stylish.
+            </p>
+
+            <a href="contact.html" class="btn btn-gold">
+                Ask About Our Services
+            </a>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="intro">
+        <div class="container">
+            <span class="eyebrow">How We Can Help</span>
+
+            <h2>Everything You Need for a Beautiful Home</h2>
+
+            <p>
+                Whether you are refreshing your bedroom, choosing a gift
+                or adding finishing touches to your living space, we can
+                help you explore suitable products and decoration ideas.
+                Contact us to confirm available options and service details.
+            </p>
+        </div>
+    </section>
+
+    <!-- SERVICES GRID -->
+    <section class="services-section">
+        <div class="container">
+
+            <div class="service-grid">
+
+                <!-- SERVICE 1 -->
+                <article class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=85"
+                            alt="Comfortable bed with elegant bedding"
+                            loading="lazy">
+                    </div>
+
+                    <div class="service-content">
+                        <span class="service-number">SERVICE 01</span>
+
+                        <h3>Bedsheets and Bedding Selection</h3>
+
+                        <p>
+                            Explore bedsheets and bedding sets in different
+                            colours, patterns and styles to complement your
+                            bedroom and personal taste.
+                        </p>
+
+                        <a href="products.html" class="text-link">
+                            Explore Products →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- SERVICE 2 -->
+                <article class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85"
+                            alt="Tastefully decorated modern living room"
+                            loading="lazy">
+                    </div>
+
+                    <div class="service-content">
+                        <span class="service-number">SERVICE 02</span>
+
+                        <h3>Interior Decoration Accessories</h3>
+
+                        <p>
+                            Discover decorative accents that can enhance
+                            your living room, bedroom and other spaces
+                            with warmth and personality.
+                        </p>
+
+                        <a href="products.html" class="text-link">
+                            View Decoration Items →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- SERVICE 3 -->
+                <article class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85"
+                            alt="Stylish bedroom with coordinated accessories"
+                            loading="lazy">
+                    </div>
+
+                    <div class="service-content">
+                        <span class="service-number">SERVICE 03</span>
+
+                        <h3>Bedroom Styling Assistance</h3>
+
+                        <p>
+                            Get help exploring colours, bedding combinations
+                            and decorative accessories that work together
+                            to create a coordinated bedroom look.
+                        </p>
+
+                        <a href="contact.html" class="text-link">
+                            Make an Enquiry →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- SERVICE 4 -->
+                <article class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85"
+                            alt="Elegant home furnishings and accessories"
+                            loading="lazy">
+                    </div>
+
+                    <div class="service-content">
+                        <span class="service-number">SERVICE 04</span>
+
+                        <h3>Home Refresh and Makeover Ideas</h3>
+
+                        <p>
+                            Give your space a fresh appearance with ideas
+                            for combining colours, textiles and decorative
+                            details without changing everything.
+                        </p>
+
+                        <a href="contact.html" class="text-link">
+                            Discuss Your Ideas →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- SERVICE 5 -->
+                <article class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85"
+                            alt="Beautifully furnished home interior"
+                            loading="lazy">
+                    </div>
+
+                    <div class="service-content">
+                        <span class="service-number">SERVICE 05</span>
+
+                        <h3>Bulk and Multiple-Item Enquiries</h3>
+
+                        <p>
+                            Contact us if you need several bedding or
+                            decoration items for a home, guest house,
+                            accommodation facility or special project.
+                        </p>
+
+                        <a href="contact.html" class="text-link">
+                            Request Information →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- SERVICE 6 -->
+                <article class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=85"
+                            alt="Thoughtfully presented gift"
+                            loading="lazy">
+                    </div>
+
+                    <div class="service-content">
+                        <span class="service-number">SERVICE 06</span>
+
+                        <h3>Gift Selection</h3>
+
+                        <p>
+                            Explore suitable bedding and home accessory
+                            ideas for birthdays, weddings, housewarmings
+                            and other memorable occasions.
+                        </p>
+
+                        <a href="products.html" class="text-link">
+                            Browse Gift Ideas →
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="process-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">Simple and Convenient</span>
+
+                <h2>How to Get Started</h2>
+
+                <p>
+                    Finding the right products for your home can be simple.
+                    Follow these steps to make an enquiry.
+                </p>
+            </div>
+
+            <div class="process-grid">
+
+                <div class="process-card">
+                    <div class="process-icon">🔎</div>
+                    <h3>1. Explore</h3>
+                    <p>
+                        Browse our products and discover styles you like.
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-icon">💬</div>
+                    <h3>2. Enquire</h3>
+                    <p>
+                        Tell us what you need and ask about available options.
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-icon">🛍️</div>
+                    <h3>3. Confirm</h3>
+                    <p>
+                        Confirm the product, price and other order details.
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-icon">🏡</div>
+                    <h3>4. Enjoy</h3>
+                    <p>
+                        Enjoy choosing items that make your space feel special.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="benefits-section">
+        <div class="container benefits-layout">
+
+            <div class="benefits-image">
+                <img
+                    src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1000&q=85"
+                    alt="Warm and elegant home interior"
+                    loading="lazy">
+            </div>
+
+            <div class="benefits-content">
+                <span class="eyebrow">The Jay's Bedd'inns Difference</span>
+
+                <h2>Why Choose Jay's Bedd'inns N More?</h2>
+
+                <p>
+                    We believe that the right bedding and decorative details
+                    can help make a house feel more like home. Our goal is
+                    to make exploring home products convenient and enjoyable.
+                </p>
+
+                <div class="benefit-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <h3>Products for Different Tastes</h3>
+                        <p>
+                            Explore a range of styles and designs to suit
+                            different preferences.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <h3>One Convenient Destination</h3>
+                        <p>
+                            Explore bedding and interior decoration products
+                            in one place.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <h3>Personal Attention</h3>
+                        <p>
+                            Contact us with your questions and get assistance
+                            choosing suitable items.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <h3>Clear Order Enquiries</h3>
+                        <p>
+                            Ask about availability, pricing and order
+                            arrangements before making a purchase.
+                        </p>
+                    </div>
+                </div>
+
+                <a href="products.html" class="btn btn-gold">
+                    Browse Our Products
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+        <div class="container">
+
+            <h2>Ready to Give Your Home a Fresh Look?</h2>
+
+            <p>
+                Let us know what you are looking for. Contact Jay's
+                Bedd'inns N More to enquire about products, prices and
+                available options.
+            </p>
+
+            <a href="contact.html" class="btn btn-gold">
+                Contact Us
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+                    <h2 class="footer-brand">Jay's Bedd'inns N More</h2>
+
+                    <p>
+                        Your destination for beautiful bedsheets,
+                        bedding accessories and interior decoration items.
+                    </p>
+
+                    <p>Comfort • Style • Everyday Luxury</p>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Contact Information</h3>
+
+                    <p>Phone: Add your business phone number</p>
+                    <p>Email: Add your business email</p>
+                    <p>Location: Add your business address</p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="year"></span>
+                    Jay's Bedd'inns N More. All rights reserved.
+                </p>
+
+                <p>Comfort • Style • Everyday Luxury</p>
+
+                <!-- Add the owner's name and registration number
+                     once the correct details are provided. -->
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation menu
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("open");
+
+            const isOpen = navLinks.classList.contains("open");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Close menu after a navigation link is clicked
+        document.querySelectorAll("#navLinks a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Open navigation menu");
+                menuToggle.textContent = "☰";
+            });
+        });
+
+        // Automatically update the copyright year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>

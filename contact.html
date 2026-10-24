@@ -1,0 +1,1164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Jay's Bedd'inns N More</title>
+
+    <meta name="description"
+          content="Contact Jay's Bedd'inns N More for enquiries about bedsheets, bedding accessories and interior decoration products.">
+    <link rel="icon" type="image/png" href="images/logo.jpeg">
+
+    <style>
+        :root {
+            --gold: #c49a35;
+            --dark-gold: #96701c;
+            --cream: #fffaf0;
+            --white: #ffffff;
+            --dark: #29251e;
+            --muted: #746e63;
+            --border: #eee4ce;
+            --green: #237447;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--dark-gold);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .brand img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--dark-gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 12px 23px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-gold:hover {
+            background: var(--dark-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: var(--green);
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #185532;
+        }
+
+        /* HERO */
+        .page-hero {
+            min-height: 340px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(
+                    rgba(32, 25, 12, 0.67),
+                    rgba(32, 25, 12, 0.67)
+                ),
+                url("images/hero.jpeg") center/cover no-repeat;
+        }
+
+        .eyebrow {
+            color: var(--dark-gold);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-eyebrow {
+            color: #f4d98d;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin: 10px 0 15px;
+        }
+
+        .page-hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        /* INTRO */
+        .intro {
+            padding: 55px 0 25px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-size: clamp(26px, 4vw, 35px);
+            margin: 10px 0;
+        }
+
+        .intro p {
+            max-width: 720px;
+            margin: auto;
+            color: var(--muted);
+        }
+
+        /* CONTACT LAYOUT */
+        .contact-section {
+            padding: 35px 0 80px;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.3fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        /* CONTACT INFORMATION */
+        .contact-info {
+            background: var(--dark);
+            color: white;
+            padding: 35px;
+            border-radius: 12px;
+        }
+
+        .contact-info h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+
+        .contact-info > p {
+            color: #e0d7c8;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(196, 154, 53, 0.18);
+            border-radius: 8px;
+            font-size: 21px;
+        }
+
+        .contact-item h3 {
+            color: #e3bb5c;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: #e0d7c8;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item a:hover {
+            color: #e3bb5c;
+        }
+
+        .contact-info .btn {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .contact-note {
+            margin-top: 22px;
+            font-size: 12px;
+            color: #c9c0b2;
+        }
+
+        /* CONTACT FORM */
+        .contact-form {
+            background: white;
+            padding: 35px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(70, 50, 10, 0.04);
+        }
+
+        .contact-form h2 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .form-intro {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 19px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd4c3;
+            border-radius: 5px;
+            background: #fffefa;
+            color: var(--dark);
+            font: inherit;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: 2px solid rgba(196, 154, 53, 0.25);
+            border-color: var(--gold);
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            font-size: 15px;
+        }
+
+        .form-status {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 5px;
+            background: #e8f5eb;
+            color: #205b33;
+            font-size: 14px;
+        }
+
+        /* WHAT TO EXPECT */
+        .expect-section {
+            background: #f4ead5;
+            padding: 70px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 35px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(26px, 4vw, 35px);
+            margin: 10px 0;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .expect-card {
+            background: white;
+            padding: 28px 23px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .expect-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .expect-card h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .expect-card p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 70px 0;
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            margin-bottom: 13px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 18px 20px;
+            border: none;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            gap: 15px;
+            color: var(--dark);
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .faq-question:hover {
+            color: var(--dark-gold);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 20px 20px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-symbol {
+            color: var(--dark-gold);
+            font-size: 21px;
+            flex-shrink: 0;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 65px 20px;
+            text-align: center;
+            background: var(--dark);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: clamp(26px, 4vw, 35px);
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            max-width: 680px;
+            margin: 0 auto 24px;
+            color: #e5ddcd;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1e1b16;
+            color: white;
+            padding: 45px 0 18px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 35px;
+            padding-bottom: 30px;
+        }
+
+        .footer-brand {
+            color: #e3bb5c;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .footer-grid h3 {
+            color: #e3bb5c;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-grid p {
+            color: #d1c9bb;
+            font-size: 14px;
+            margin-bottom: 9px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #e3bb5c;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #403a2f;
+            padding-top: 18px;
+            text-align: center;
+            color: #c9c0b2;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                min-height: 75px;
+            }
+
+            .brand {
+                font-size: 14px;
+                gap: 8px;
+            }
+
+            .brand img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px 4%;
+                flex-direction: column;
+                align-items: flex-start;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .page-hero {
+                min-height: 280px;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 25px;
+            }
+
+            .form-row,
+            .expect-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container navbar">
+
+            <a href="index.html" class="brand">
+                <img src="images/logo.jpeg"
+                     alt="Jay's Bedd'inns N More logo">
+                <span>Jay's Bedd'inns N More</span>
+            </a>
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="container">
+
+            <span class="eyebrow hero-eyebrow">
+                We Would Love to Hear From You
+            </span>
+
+            <h1>Contact Us</h1>
+
+            <p>
+                Have questions about our bedsheets, bedding accessories
+                or interior decoration products? Contact us to ask about
+                available designs, prices and order arrangements.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="intro">
+        <div class="container">
+
+            <span class="eyebrow">Get in Touch</span>
+
+            <h2>How Can We Help You?</h2>
+
+            <p>
+                Whether you are shopping for your home, selecting a gift
+                or making a bulk enquiry, we welcome your questions.
+                Send us a message using the form below.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- CONTACT DETAILS AND FORM -->
+    <section class="contact-section">
+        <div class="container contact-layout">
+
+            <!-- CONTACT INFORMATION -->
+            <aside class="contact-info">
+
+                <h2>Contact Information</h2>
+
+                <p>
+                    Reach out to Jay's Bedd'inns N More for product
+                    information and enquiries.
+                </p>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h3>Phone Number</h3>
+                        <p>Replace with your business phone number</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h3>Email Address</h3>
+                        <p>Replace with your business email</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>Business Location</h3>
+                        <p>Replace with your business address</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🛍️</div>
+                    <div>
+                        <h3>Product Enquiries</h3>
+                        <p>
+                            Ask about bedsheets, bedding accessories,
+                            interior decorations and bulk orders.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Replace 2348144708179 with your WhatsApp number.
+                     Use international format without + or spaces. -->
+                <a
+                    href="https://wa.me/2348144708179?text=Hello%20Jay%27s%20Bedd%27inns%20N%20More%2C%20I%20would%20like%20to%20make%20an%20enquiry."
+                    class="btn btn-whatsapp"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Chat with Us on WhatsApp
+                </a>
+
+                <p class="contact-note">
+                    Remember to replace the sample WhatsApp number
+                    with your actual business number before publishing.
+                </p>
+
+            </aside>
+
+            <!-- CONTACT FORM -->
+            <div class="contact-form">
+
+                <h2>Send Us a Message</h2>
+
+                <p class="form-intro">
+                    Complete the form below to prepare your enquiry.
+                    You can then send the message through WhatsApp.
+                </p>
+
+                <form id="contactForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                autocomplete="tel"
+                                required>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">What Are You Enquiring About? *</label>
+
+                        <select id="subject" name="subject" required>
+                            <option value="">Select an enquiry type</option>
+                            <option value="Bedsheets">Bedsheets</option>
+                            <option value="Bedding Accessories">Bedding Accessories</option>
+                            <option value="Interior Decorations">Interior Decorations</option>
+                            <option value="Bedroom Styling">Bedroom Styling</option>
+                            <option value="Bulk Order">Bulk Order</option>
+                            <option value="Gift Selection">Gift Selection</option>
+                            <option value="Other Enquiry">Other Enquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell us what you need, your preferred design, quantity or other details..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-gold">
+                        Prepare WhatsApp Message
+                    </button>
+
+                    <div
+                        class="form-status"
+                        id="formStatus"
+                        role="status"
+                        aria-live="polite">
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHAT TO EXPECT -->
+    <section class="expect-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">Our Commitment</span>
+
+                <h2>Making Your Enquiry Simple</h2>
+
+                <p>
+                    We want you to have a convenient experience when
+                    enquiring about products for your home.
+                </p>
+            </div>
+
+            <div class="expect-grid">
+
+                <article class="expect-card">
+                    <div class="expect-icon">💬</div>
+
+                    <h3>Clear Communication</h3>
+
+                    <p>
+                        Ask questions about products, available options
+                        and prices before placing an order.
+                    </p>
+                </article>
+
+                <article class="expect-card">
+                    <div class="expect-icon">🛏️</div>
+
+                    <h3>Product Guidance</h3>
+
+                    <p>
+                        Tell us what you are looking for so we can help
+                        you explore suitable bedding and decor options.
+                    </p>
+                </article>
+
+                <article class="expect-card">
+                    <div class="expect-icon">🤝</div>
+
+                    <h3>Personal Attention</h3>
+
+                    <p>
+                        We welcome enquiries from customers looking for
+                        individual items or multiple products.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">Frequently Asked Questions</span>
+
+                <h2>Questions You May Have</h2>
+
+                <p>
+                    Here are answers to some common questions about
+                    shopping with Jay's Bedd'inns N More.
+                </p>
+            </div>
+
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-question"
+                            type="button"
+                            aria-expanded="false">
+                        <span>How can I find out the price of a product?</span>
+                        <span class="faq-symbol">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Contact us with the product name or description.
+                        We can confirm the price and availability of the
+                        item you are interested in.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question"
+                            type="button"
+                            aria-expanded="false">
+                        <span>Can I enquire about different bedsheet designs?</span>
+                        <span class="faq-symbol">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Yes. Tell us your preferred colours, patterns,
+                        size and other requirements so we can discuss
+                        the available options with you.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question"
+                            type="button"
+                            aria-expanded="false">
+                        <span>Do you accept bulk order enquiries?</span>
+                        <span class="faq-symbol">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        You can contact us about multiple-item orders.
+                        Please include the products and quantities you
+                        need so we can discuss availability and pricing.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question"
+                            type="button"
+                            aria-expanded="false">
+                        <span>How do I place an order?</span>
+                        <span class="faq-symbol">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Send us an enquiry about the product you want.
+                        Confirm the product details, price, payment
+                        arrangements and delivery or collection options
+                        directly with the business before paying.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question"
+                            type="button"
+                            aria-expanded="false">
+                        <span>Can I ask about interior decoration products?</span>
+                        <span class="faq-symbol">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Absolutely. Contact us with the type of
+                        decoration item or room you want to improve,
+                        and we can discuss suitable available options.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+        <div class="container">
+
+            <h2>Let's Make Your Home Beautiful</h2>
+
+            <p>
+                Thank you for your interest in Jay's Bedd'inns N More.
+                We look forward to helping you explore bedding and
+                interior decoration options for your space.
+            </p>
+
+            <a href="products.html" class="btn btn-gold">
+                Browse Our Products
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+                    <h2 class="footer-brand">
+                        Jay's Bedd'inns N More
+                    </h2>
+
+                    <p>
+                        Your destination for beautiful bedsheets,
+                        bedding accessories and interior decorations.
+                    </p>
+
+                    <p>Comfort • Style • Everyday Luxury</p>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Contact Information</h3>
+
+                    <p>Phone: Add your business phone number</p>
+                    <p>Email: Add your business email</p>
+                    <p>Location: Add your business address</p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="year"></span>
+                    Jay's Bedd'inns N More. All rights reserved.
+                </p>
+
+                <p>Comfort • Style • Everyday Luxury</p>
+
+                <!-- Add the owner's full name and registration number
+                     when the correct details are available. -->
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("open");
+
+            const isOpen = navLinks.classList.contains("open");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        document.querySelectorAll("#navLinks a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Open navigation menu");
+                menuToggle.textContent = "☰";
+            });
+        });
+
+        // Contact form: prepare an enquiry in WhatsApp
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+
+        /*
+         * IMPORTANT:
+         * Replace this sample number with the business's real WhatsApp
+         * number in international format, without +, spaces or dashes.
+         * Example format for Nigeria: 2348144708179
+         */
+        const businessWhatsAppNumber = "2348144708179";
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!contactForm.reportValidity()) {
+                return;
+            }
+
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value.trim();
+
+            const whatsappMessage =
+                "Hello Jay's Bedd'inns N More,\n\n" +
+                "I would like to make an enquiry.\n\n" +
+                "Name: " + name + "\n" +
+                "Phone: " + phone + "\n" +
+                "Email: " + (email || "Not provided") + "\n" +
+                "Enquiry type: " + subject + "\n" +
+                "Message: " + message + "\n\n" +
+                "Thank you.";
+
+            const whatsappURL =
+                "https://wa.me/" +
+                businessWhatsAppNumber +
+                "?text=" +
+                encodeURIComponent(whatsappMessage);
+
+            if (businessWhatsAppNumber === "2348144708179") {
+                formStatus.style.display = "block";
+                formStatus.textContent =
+                    "Please replace the sample WhatsApp number in the JavaScript " +
+                    "with your actual business number before using this form.";
+                return;
+            }
+
+            formStatus.style.display = "block";
+            formStatus.textContent =
+                "Your enquiry is prepared. WhatsApp will open so you can review and send it.";
+
+            window.open(whatsappURL, "_blank", "noopener,noreferrer");
+        });
+
+        // FAQ accordion
+        document.querySelectorAll(".faq-question").forEach(function (button) {
+            button.addEventListener("click", function () {
+                const item = button.closest(".faq-item");
+                const isOpen = item.classList.contains("open");
+
+                document.querySelectorAll(".faq-item").forEach(function (faq) {
+                    faq.classList.remove("open");
+                    faq.querySelector(".faq-question")
+                        .setAttribute("aria-expanded", "false");
+                    faq.querySelector(".faq-symbol").textContent = "+";
+                });
+
+                if (!isOpen) {
+                    item.classList.add("open");
+                    button.setAttribute("aria-expanded", "true");
+                    button.querySelector(".faq-symbol").textContent = "−";
+                }
+            });
+        });
+
+        // Current year in footer
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>

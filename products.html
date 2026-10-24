@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Products | Jay's Bedd'inns N More</title>
+
+    <meta name="description" content="Shop beautiful bedsheets, bedding accessories and interior decorations at Jay's Bedd'inns N More.">
+    <link rel="icon" type="image/png" href="images/logo.jpeg">
+
+    <style>
+        :root {
+            --gold: #c49a35;
+            --dark-gold: #96701c;
+            --cream: #fffaf0;
+            --white: #ffffff;
+            --dark: #29251e;
+            --muted: #746e63;
+            --border: #eee4ce;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: bold;
+            color: var(--dark-gold);
+            font-size: 18px;
+        }
+
+        .brand img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--dark-gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: transparent;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #fff;
+        }
+
+        .btn-gold:hover {
+            background: var(--dark-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gold);
+            color: var(--dark-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: #fff;
+        }
+
+        /* PAGE BANNER */
+        .page-banner {
+            padding: 75px 0;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(32, 25, 12, 0.65),
+                rgba(32, 25, 12, 0.65)),
+                url("images/hero.jpeg") center/cover no-repeat;
+        }
+
+        .page-banner h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 12px;
+        }
+
+        .page-banner p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        /* INTRO */
+        .intro {
+            text-align: center;
+            padding: 55px 0 25px;
+        }
+
+        .eyebrow {
+            color: var(--dark-gold);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .intro h2 {
+            font-size: clamp(26px, 4vw, 36px);
+            margin: 8px 0 12px;
+        }
+
+        .intro p {
+            max-width: 700px;
+            margin: auto;
+            color: var(--muted);
+        }
+
+        /* FILTER BUTTONS */
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 28px 0 35px;
+        }
+
+        .filter-btn {
+            padding: 10px 18px;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--dark);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gold);
+            color: white;
+            border-color: var(--gold);
+        }
+
+        /* PRODUCT GRID */
+        .products-section {
+            padding: 0 0 75px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(70, 50, 10, 0.1);
+        }
+
+        .product-image {
+            height: 245px;
+            background: #eee5d3;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--gold);
+            color: white;
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-category {
+            font-size: 11px;
+            color: var(--dark-gold);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-info h3 {
+            margin: 6px 0 8px;
+            font-size: 20px;
+        }
+
+        .product-info p {
+            color: var(--muted);
+            font-size: 14px;
+            min-height: 45px;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 18px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .price {
+            color: var(--dark-gold);
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .order-btn {
+            padding: 9px 12px;
+            font-size: 12px;
+            border-radius: 4px;
+            background: #246b42;
+            color: white;
+            font-weight: bold;
+        }
+
+        .order-btn:hover {
+            background: #17492c;
+        }
+
+        .empty-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            color: var(--muted);
+            grid-column: 1 / -1;
+        }
+
+        /* WHY SHOP WITH US */
+        .benefits {
+            padding: 65px 0;
+            background: #f4ead5;
+        }
+
+        .benefits h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .benefit {
+            background: white;
+            padding: 28px 22px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .benefit h3 {
+            margin-bottom: 8px;
+        }
+
+        .benefit p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 65px 20px;
+            text-align: center;
+            background: var(--dark);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: clamp(25px, 4vw, 35px);
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: #e5ddcd;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1e1b16;
+            color: white;
+            padding: 45px 0 18px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 35px;
+            padding-bottom: 30px;
+        }
+
+        .footer-brand {
+            color: #e3bb5c;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .footer-grid p {
+            color: #d1c9bb;
+            font-size: 14px;
+            margin-bottom: 9px;
+        }
+
+        .footer-grid h3 {
+            color: #e3bb5c;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #e3bb5c;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #403a2f;
+            padding-top: 18px;
+            text-align: center;
+            color: #c9c0b2;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 13px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                min-height: 75px;
+            }
+
+            .brand {
+                font-size: 14px;
+                gap: 8px;
+            }
+
+            .brand img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px 4%;
+                flex-direction: column;
+                align-items: flex-start;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .page-banner {
+                padding: 55px 0;
+            }
+
+            .product-grid,
+            .benefit-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 260px;
+            }
+
+            .footer-grid {
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER AND NAVIGATION -->
+    <header>
+        <div class="container navbar">
+
+            <a href="index.html" class="brand">
+                <img src="images/logo.jpeg"
+                     alt="Jay's Bedd'inns N More logo">
+                <span>Jay's Bedd'inns N More</span>
+            </a>
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>
+                Discover beautiful bedding and interior decoration pieces
+                that bring comfort, elegance and personality into your home.
+            </p>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="intro">
+        <div class="container">
+            <span class="eyebrow">Comfort Meets Elegance</span>
+            <h2>Shop Our Collection</h2>
+            <p>
+                From soft bedsheets to stylish home accessories, we help you
+                create a beautiful space you will love coming home to.
+                Explore our collections and contact us to place your order.
+            </p>
+
+            <!-- PRODUCT FILTERS -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    All Products
+                </button>
+
+                <button class="filter-btn" data-filter="bedsheets">
+                    Bedsheets
+                </button>
+
+                <button class="filter-btn" data-filter="bedding">
+                    Bedding Accessories
+                </button>
+
+                <button class="filter-btn" data-filter="decor">
+                    Interior Decorations
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT LIST -->
+    <section class="products-section">
+        <div class="container">
+
+            <div class="product-grid" id="productGrid">
+
+                <!-- PRODUCT 1 -->
+                <article class="product-card" data-category="bedsheets">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=85"
+                            alt="Beautiful neatly arranged bed linen"
+                            loading="lazy">
+                        <span class="product-tag">Popular</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Bedsheets</span>
+                        <h3>Luxury Bedsheets</h3>
+                        <p>
+                            Refresh your bedroom with attractive bedsheets
+                            designed to complement your personal style.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">Request Price</span>
+                            <a class="order-btn"
+                               href="contact.html?product=Luxury%20Bedsheets">
+                                Enquire
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRODUCT 2 -->
+                <article class="product-card" data-category="bedsheets">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=900&q=85"
+                            alt="Elegant bedroom interior"
+                            loading="lazy">
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Bedsheets</span>
+                        <h3>Premium Bedding Sets</h3>
+                        <p>
+                            Coordinate your bedroom with bedding sets in
+                            attractive colours and stylish designs.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">Request Price</span>
+                            <a class="order-btn"
+                               href="contact.html?product=Premium%20Bedding%20Sets">
+                                Enquire
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRODUCT 3 -->
+                <article class="product-card" data-category="bedding">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85"
+                            alt="Comfortable and stylish bedroom accessories"
+                            loading="lazy">
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Bedding Accessories</span>
+                        <h3>Pillows and Pillowcases</h3>
+                        <p>
+                            Complete your bedding with attractive pillows
+                            and matching pillowcases.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">Request Price</span>
+                            <a class="order-btn"
+                               href="contact.html?product=Pillows%20and%20Pillowcases">
+                                Enquire
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRODUCT 4 -->
+                <article class="product-card" data-category="bedding">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=900&q=85"
+                            alt="Stylish home textiles"
+                            loading="lazy">
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Bedding Accessories</span>
+                        <h3>Comforter and Duvet Sets</h3>
+                        <p>
+                            Add warmth and a coordinated finish to your
+                            sleeping space with elegant bedding accessories.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">Request Price</span>
+                            <a class="order-btn"
+                               href="contact.html?product=Comforter%20and%20Duvet%20Sets">
+                                Enquire
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRODUCT 5 -->
+                <article class="product-card" data-category="decor">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85"
+                            alt="Modern living room interior decoration"
+                            loading="lazy">
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Interior Decorations</span>
+                        <h3>Decorative Accessories</h3>
+                        <p>
+                            Give your living space a refined look with
+                            carefully selected decorative accents.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">Request Price</span>
+                            <a class="order-btn"
+                               href="contact.html?product=Decorative%20Accessories">
+                                Enquire
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRODUCT 6 -->
+                <article class="product-card" data-category="decor">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85"
+                            alt="Elegant living room with stylish furnishings"
+                            loading="lazy">
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Interior Decorations</span>
+                        <h3>Home Styling Pieces</h3>
+                        <p>
+                            Discover finishing touches that help create
+                            a welcoming and attractive home environment.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="price">Request Price</span>
+                            <a class="order-btn"
+                               href="contact.html?product=Home%20Styling%20Pieces">
+                                Enquire
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <p class="empty-message" id="emptyMessage">
+                    No products found in this category.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="benefits">
+        <div class="container">
+            <h2>Why Shop With Us?</h2>
+
+            <div class="benefit-grid">
+
+                <div class="benefit">
+                    <div class="benefit-icon">✨</div>
+                    <h3>Style and Elegance</h3>
+                    <p>
+                        Explore bedding and decor options that help make
+                        your home feel special and welcoming.
+                    </p>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">🛏️</div>
+                    <h3>Comfort for Your Home</h3>
+                    <p>
+                        Find products selected to help you create a more
+                        comfortable and beautiful living space.
+                    </p>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">💬</div>
+                    <h3>Personalised Assistance</h3>
+                    <p>
+                        Contact us for product details, available designs,
+                        prices and help choosing suitable items.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+        <div class="container">
+            <h2>Let's Make Your Home Beautiful</h2>
+
+            <p>
+                Have a particular bedsheet design or decoration in mind?
+                Get in touch with us to ask about availability and prices.
+            </p>
+
+            <a href="contact.html" class="btn btn-gold">
+                Contact Us Today
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+                    <h2 class="footer-brand">Jay's Bedd'inns N More</h2>
+
+                    <p>
+                        Your destination for beautiful bedsheets,
+                        bedding accessories and elegant interior decorations.
+                    </p>
+
+                    <p>Comfort • Style • Everyday Luxury</p>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Our Products</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Contact Information</h3>
+
+                    <p>Phone: Add your business phone number</p>
+                    <p>Email: Add your business email</p>
+                    <p>Location: Add your business address</p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="year"></span>
+                    Jay's Bedd'inns N More.
+                    All rights reserved.
+                </p>
+
+                <p>
+                    Comfort • Style • Everyday Luxury
+                </p>
+
+                <!-- Add the owner's full name and registration number here
+                     when the correct details are available. -->
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("open");
+
+            const isOpen = navLinks.classList.contains("open");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Close the mobile menu after clicking a link
+        document.querySelectorAll("#navLinks a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Open navigation menu");
+                menuToggle.textContent = "☰";
+            });
+        });
+
+        // Filter products by category
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const productCards = document.querySelectorAll(".product-card");
+        const emptyMessage = document.getElementById("emptyMessage");
+
+        filterButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                filterButtons.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                const selectedCategory = button.dataset.filter;
+                let visibleCount = 0;
+
+                productCards.forEach(function (card) {
+                    const matches =
+                        selectedCategory === "all" ||
+                        card.dataset.category === selectedCategory;
+
+                    card.style.display = matches ? "block" : "none";
+
+                    if (matches) {
+                        visibleCount++;
+                    }
+                });
+
+                emptyMessage.style.display =
+                    visibleCount === 0 ? "block" : "none";
+            });
+        });
+
+        // Display current year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
