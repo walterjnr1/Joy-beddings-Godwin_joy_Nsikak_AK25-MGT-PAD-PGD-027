@@ -9,7 +9,8 @@
 
     <meta name="description"
           content="Contact Jay's Bedd'inns N More for enquiries about bedsheets, bedding accessories and interior decoration products.">
-    <link rel="icon" type="image/png" href="images/logo.jpeg">
+
+    <link rel="icon" type="image/jpeg" href="images/logo.jpeg">
 
     <style>
         :root {
@@ -41,8 +42,8 @@
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
         img {
@@ -50,12 +51,20 @@
             max-width: 100%;
         }
 
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
         .container {
             width: min(1150px, 92%);
             margin: auto;
         }
 
-        /* HEADER */
+        /* HEADER AND NAVIGATION */
+
         header {
             background: var(--white);
             border-bottom: 1px solid var(--border);
@@ -70,6 +79,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 25px;
+            position: relative;
         }
 
         .brand {
@@ -112,9 +122,11 @@
             border: none;
             font-size: 28px;
             cursor: pointer;
+            color: var(--dark);
         }
 
         /* BUTTONS */
+
         .btn {
             display: inline-block;
             padding: 12px 23px;
@@ -145,7 +157,8 @@
             background: #185532;
         }
 
-        /* HERO */
+        /* PAGE HERO */
+
         .page-hero {
             min-height: 340px;
             display: flex;
@@ -183,7 +196,8 @@
             font-size: 17px;
         }
 
-        /* INTRO */
+        /* INTRODUCTION */
+
         .intro {
             padding: 55px 0 25px;
             text-align: center;
@@ -200,7 +214,8 @@
             color: var(--muted);
         }
 
-        /* CONTACT LAYOUT */
+        /* CONTACT SECTION */
+
         .contact-section {
             padding: 35px 0 80px;
         }
@@ -213,6 +228,7 @@
         }
 
         /* CONTACT INFORMATION */
+
         .contact-info {
             background: var(--dark);
             color: white;
@@ -273,12 +289,13 @@
         }
 
         .contact-note {
-            margin-top: 22px;
+            margin-top: 18px;
             font-size: 12px;
             color: #c9c0b2;
         }
 
         /* CONTACT FORM */
+
         .contact-form {
             background: white;
             padding: 35px;
@@ -324,7 +341,6 @@
             border-radius: 5px;
             background: #fffefa;
             color: var(--dark);
-            font: inherit;
             font-size: 14px;
         }
 
@@ -353,9 +369,17 @@
             background: #e8f5eb;
             color: #205b33;
             font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .form-status a {
+            color: #205b33;
+            text-decoration: underline;
+            font-weight: bold;
         }
 
         /* WHAT TO EXPECT */
+
         .expect-section {
             background: #f4ead5;
             padding: 70px 0;
@@ -405,6 +429,7 @@
         }
 
         /* FAQ */
+
         .faq-section {
             padding: 70px 0;
         }
@@ -433,7 +458,6 @@
             text-align: left;
             gap: 15px;
             color: var(--dark);
-            font: inherit;
             font-weight: bold;
             cursor: pointer;
         }
@@ -459,7 +483,8 @@
             flex-shrink: 0;
         }
 
-        /* CTA */
+        /* CALL TO ACTION */
+
         .cta {
             padding: 65px 20px;
             text-align: center;
@@ -479,6 +504,7 @@
         }
 
         /* FOOTER */
+
         footer {
             background: #1e1b16;
             color: white;
@@ -531,7 +557,12 @@
             font-size: 13px;
         }
 
-        /* RESPONSIVE */
+        .footer-bottom p {
+            margin-bottom: 5px;
+        }
+
+        /* RESPONSIVE DESIGN */
+
         @media (max-width: 900px) {
             .contact-layout {
                 grid-template-columns: 1fr;
@@ -610,12 +641,13 @@
 
             <button class="menu-toggle"
                     id="menuToggle"
+                    type="button"
                     aria-label="Open navigation menu"
                     aria-expanded="false">
                 ☰
             </button>
 
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
@@ -631,7 +663,6 @@
     <!-- HERO -->
     <section class="page-hero">
         <div class="container">
-
             <span class="eyebrow hero-eyebrow">
                 We Would Love to Hear From You
             </span>
@@ -643,14 +674,12 @@
                 or interior decoration products? Contact us to ask about
                 available designs, prices and order arrangements.
             </p>
-
         </div>
     </section>
 
     <!-- INTRODUCTION -->
     <section class="intro">
         <div class="container">
-
             <span class="eyebrow">Get in Touch</span>
 
             <h2>How Can We Help You?</h2>
@@ -660,7 +689,6 @@
                 or making a bulk enquiry, we welcome your questions.
                 Send us a message using the form below.
             </p>
-
         </div>
     </section>
 
@@ -670,7 +698,6 @@
 
             <!-- CONTACT INFORMATION -->
             <aside class="contact-info">
-
                 <h2>Contact Information</h2>
 
                 <p>
@@ -682,7 +709,9 @@
                     <div class="contact-icon">📞</div>
                     <div>
                         <h3>Phone Number</h3>
-                        <p>08144708179</p>
+                        <p>
+                            <a href="tel:08144708179">08144708179</a>
+                        </p>
                     </div>
                 </div>
 
@@ -690,7 +719,11 @@
                     <div class="contact-icon">✉️</div>
                     <div>
                         <h3>Email Address</h3>
-                        <p>mostxpensif@gmail.com</p>
+                        <p>
+                            <a href="mailto:mostxpensif@gmail.com">
+                                mostxpensif@gmail.com
+                            </a>
+                        </p>
                     </div>
                 </div>
 
@@ -698,7 +731,7 @@
                     <div class="contact-icon">📍</div>
                     <div>
                         <h3>Business Location</h3>
-                        <p>169 aka etinan road, Uyo, Akwa Ibom</p>
+                        <p>169 Aka Etinan Road, Uyo, Akwa Ibom</p>
                     </div>
                 </div>
 
@@ -713,10 +746,9 @@
                     </div>
                 </div>
 
-                <!-- Replace 2348144708179 with your WhatsApp number.
-                     Use international format without + or spaces. -->
+                <!-- WhatsApp number in international format -->
                 <a
-                    href="https://wa.me/2348144708179 ?text=Hello%20Jay%27s%20Bedd%27inns%20N%20More%2C%20I%20would%20like%20to%20make%20an%20enquiry."
+                    href="https://wa.me/2348144708179?text=Hello%20Jay%27s%20Bedd%27inns%20N%20More%2C%20I%20would%20like%20to%20make%20an%20enquiry."
                     class="btn btn-whatsapp"
                     target="_blank"
                     rel="noopener noreferrer">
@@ -724,29 +756,25 @@
                 </a>
 
                 <p class="contact-note">
-                    Remember to replace the sample WhatsApp number
-                    with your actual business number before publishing.
+                    Click the button to start a WhatsApp conversation
+                    with Jay's Bedd'inns N More.
                 </p>
-
             </aside>
 
             <!-- CONTACT FORM -->
             <div class="contact-form">
-
                 <h2>Send Us a Message</h2>
 
                 <p class="form-intro">
-                    Complete the form below to prepare your enquiry.
-                    You can then send the message through WhatsApp.
+                    Complete the form below. WhatsApp will open with
+                    your enquiry ready for you to review and send.
                 </p>
 
                 <form id="contactForm">
 
                     <div class="form-row">
-
                         <div class="form-group">
                             <label for="name">Full Name *</label>
-
                             <input
                                 type="text"
                                 id="name"
@@ -758,7 +786,6 @@
 
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
-
                             <input
                                 type="tel"
                                 id="phone"
@@ -767,12 +794,10 @@
                                 autocomplete="tel"
                                 required>
                         </div>
-
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email Address</label>
-
                         <input
                             type="email"
                             id="email"
@@ -782,23 +807,34 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="subject">What Are You Enquiring About? *</label>
+                        <label for="subject">
+                            What Are You Enquiring About? *
+                        </label>
 
                         <select id="subject" name="subject" required>
                             <option value="">Select an enquiry type</option>
                             <option value="Bedsheets">Bedsheets</option>
-                            <option value="Bedding Accessories">Bedding Accessories</option>
-                            <option value="Interior Decorations">Interior Decorations</option>
-                            <option value="Bedroom Styling">Bedroom Styling</option>
+                            <option value="Bedding Accessories">
+                                Bedding Accessories
+                            </option>
+                            <option value="Interior Decorations">
+                                Interior Decorations
+                            </option>
+                            <option value="Bedroom Styling">
+                                Bedroom Styling
+                            </option>
                             <option value="Bulk Order">Bulk Order</option>
-                            <option value="Gift Selection">Gift Selection</option>
-                            <option value="Other Enquiry">Other Enquiry</option>
+                            <option value="Gift Selection">
+                                Gift Selection
+                            </option>
+                            <option value="Other Enquiry">
+                                Other Enquiry
+                            </option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="message">Your Message *</label>
-
                         <textarea
                             id="message"
                             name="message"
@@ -807,7 +843,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-gold">
-                        Prepare WhatsApp Message
+                        Send Enquiry via WhatsApp
                     </button>
 
                     <div
@@ -818,7 +854,6 @@
                     </div>
 
                 </form>
-
             </div>
 
         </div>
@@ -843,9 +878,7 @@
 
                 <article class="expect-card">
                     <div class="expect-icon">💬</div>
-
                     <h3>Clear Communication</h3>
-
                     <p>
                         Ask questions about products, available options
                         and prices before placing an order.
@@ -854,9 +887,7 @@
 
                 <article class="expect-card">
                     <div class="expect-icon">🛏️</div>
-
                     <h3>Product Guidance</h3>
-
                     <p>
                         Tell us what you are looking for so we can help
                         you explore suitable bedding and decor options.
@@ -865,9 +896,7 @@
 
                 <article class="expect-card">
                     <div class="expect-icon">🤝</div>
-
                     <h3>Personal Attention</h3>
-
                     <p>
                         We welcome enquiries from customers looking for
                         individual items or multiple products.
@@ -1028,9 +1057,19 @@
                 <div>
                     <h3>Contact Information</h3>
 
-                    <p>Phone: 08144708179 </p>
-                    <p>Email: mostxpensif@gmail.com</p>
-                    <p>Location: 169 aka etinan road, Uyo , Akwa Ibom</p>
+                    <p>
+                        Phone:
+                        <a href="tel:08144708179">08144708179</a>
+                    </p>
+
+                    <p>
+                        Email:
+                        <a href="mailto:mostxpensif@gmail.com">
+                            mostxpensif@gmail.com
+                        </a>
+                    </p>
+
+                    <p>Location: 169 Aka Etinan Road, Uyo, Akwa Ibom</p>
                 </div>
 
             </div>
@@ -1042,25 +1081,25 @@
                 </p>
 
                 <p>Comfort • Style • Everyday Luxury</p>
-
-                <!-- Add the owner's full name and registration number
-                     when the correct details are available. -->
             </div>
 
         </div>
     </footer>
 
     <script>
-        // Mobile navigation
+        // BUSINESS WHATSAPP NUMBER
+        // Nigerian format: remove the leading 0 and add 234.
+        // Do not include +, spaces or dashes.
+        const businessWhatsAppNumber = "2348144708179";
+
+        // MOBILE NAVIGATION
         const menuToggle = document.getElementById("menuToggle");
         const navLinks = document.getElementById("navLinks");
 
         menuToggle.addEventListener("click", function () {
-            navLinks.classList.toggle("open");
+            const isOpen = navLinks.classList.toggle("open");
 
-            const isOpen = navLinks.classList.contains("open");
-
-            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
             menuToggle.setAttribute(
                 "aria-label",
                 isOpen ? "Close navigation menu" : "Open navigation menu"
@@ -1078,21 +1117,14 @@
             });
         });
 
-        // Contact form: prepare an enquiry in WhatsApp
+        // CONTACT FORM: OPEN WHATSAPP WITH THE CUSTOMER'S ENQUIRY
         const contactForm = document.getElementById("contactForm");
         const formStatus = document.getElementById("formStatus");
-
-        /*
-         * IMPORTANT:
-         * Replace this sample number with the business's real WhatsApp
-         * number in international format, without +, spaces or dashes.
-         * Example format for Nigeria: 2348144708179
-         */
-        const businessWhatsAppNumber = "2348144708179";
 
         contactForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
+            // Check all required fields before continuing.
             if (!contactForm.reportValidity()) {
                 return;
             }
@@ -1103,6 +1135,7 @@
             const subject = document.getElementById("subject").value;
             const message = document.getElementById("message").value.trim();
 
+            // Build the message that will appear in WhatsApp.
             const whatsappMessage =
                 "Hello Jay's Bedd'inns N More,\n\n" +
                 "I would like to make an enquiry.\n\n" +
@@ -1113,40 +1146,54 @@
                 "Message: " + message + "\n\n" +
                 "Thank you.";
 
+            // Encode the message so spaces and special characters work.
             const whatsappURL =
                 "https://wa.me/" +
                 businessWhatsAppNumber +
                 "?text=" +
                 encodeURIComponent(whatsappMessage);
 
-            if (businessWhatsAppNumber === "2348144708179") {
-                formStatus.style.display = "block";
-                formStatus.textContent =
-                    "Please replace the sample WhatsApp number in the JavaScript " +
-                    "with your actual business number before using this form.";
-                return;
-            }
-
             formStatus.style.display = "block";
             formStatus.textContent =
-                "Your enquiry is prepared. WhatsApp will open so you can review and send it.";
+                "Opening WhatsApp. If it does not open automatically, use the link below.";
 
-            window.open(whatsappURL, "_blank", "noopener,noreferrer");
+            // Provide a clickable fallback if the browser blocks a new tab.
+            formStatus.appendChild(document.createElement("br"));
+
+            const fallbackLink = document.createElement("a");
+            fallbackLink.href = whatsappURL;
+            fallbackLink.target = "_blank";
+            fallbackLink.rel = "noopener noreferrer";
+            fallbackLink.textContent = "Click here to open WhatsApp";
+            formStatus.appendChild(fallbackLink);
+
+            // Open WhatsApp. If a new tab is blocked, navigate in this tab.
+            const whatsappWindow = window.open(whatsappURL, "_blank");
+
+            if (whatsappWindow) {
+                whatsappWindow.opener = null;
+            } else {
+                window.location.href = whatsappURL;
+            }
         });
 
-        // FAQ accordion
+        // FAQ ACCORDION
         document.querySelectorAll(".faq-question").forEach(function (button) {
             button.addEventListener("click", function () {
                 const item = button.closest(".faq-item");
                 const isOpen = item.classList.contains("open");
 
+                // Close all FAQ items first.
                 document.querySelectorAll(".faq-item").forEach(function (faq) {
                     faq.classList.remove("open");
+
                     faq.querySelector(".faq-question")
                         .setAttribute("aria-expanded", "false");
+
                     faq.querySelector(".faq-symbol").textContent = "+";
                 });
 
+                // Open the selected item if it was previously closed.
                 if (!isOpen) {
                     item.classList.add("open");
                     button.setAttribute("aria-expanded", "true");
@@ -1155,7 +1202,7 @@
             });
         });
 
-        // Current year in footer
+        // CURRENT YEAR IN FOOTER
         document.getElementById("year").textContent =
             new Date().getFullYear();
     </script>
